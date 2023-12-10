@@ -1,0 +1,73 @@
+{% extends "core/base.html" %}
+{%block title%}CRM-System{%endblock%}
+{% block content %}
+<main class="container mt-4">
+    <section id="dashboard" class="mb-4">
+      <h2>Dashboard Overview</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Metrics or summary data here -->
+          <!-- Example: -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sales Performance</h5>
+              <p class="card-text">Total Sales: $XX,XXX</p>
+              <!-- Add more summary info here -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <!-- Another section of metrics or summary data -->
+        </div>
+      </div>
+    </section>
+  
+    <section id="quick-access" class="mb-4">
+      <h2>Quick Access</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Quick access buttons -->
+          <button class="btn btn-primary">Add New Client</button>
+        </div>
+        <div class="col-md-4">
+          <!-- Another quick access feature -->
+        </div>
+        <div class="col-md-4">
+          <!-- And another -->
+        </div>
+      </div>
+    </section>
+  
+    <section id="client-summary" class="mb-4">
+      <h2>Client Summary</h2>
+      <!-- Display client information or activities -->
+      <section id="recent-activities" class="mb-4">
+        <h2>Recent Activities</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Display recent activities -->
+                {% if recent_activities %}
+                    <ul class="list-group">
+                        {% for activity in recent_activities %}
+                            <li class="list-group-item">
+                                <strong>{{ activity.client }}</strong> - {{ activity.activity_type }}
+                                <!-- Display other activity details as needed -->
+                                <span class="float-end">{{ activity.timestamp }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No recent activities found.</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    
+    </section>
+  
+    <!-- Add more sections with similar structure for calendar, reports, etc. -->
+  
+  </main>
+  
+
+    {% endblock  %}

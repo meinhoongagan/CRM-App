@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+{% block title %}Add Leads{% endblock %}
+{% block content %}
+  <h3>Leads List</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class='bg-primary-subtle'>
+          Name
+        </th>
+        <th class='bg-primary-subtle'>Priority</th>
+        <th class='bg-primary-subtle'>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for lead in leads %}
+      <tr>
+        <td class="{% cycle 'bg-secondary-subtle' '' %}">
+          <a href="{% url 'lead-details' lead.id %}" style='color: blue; text-decoration: none;'>{{ lead.name }}</a>
+        </td>
+        <td class="{% cycle 'bg-secondary-subtle' '' %}">{{ lead.priority }}</td>
+        <td class="{% cycle 'bg-secondary-subtle' '' %}">{{ lead.status }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="3">There are no leads yet in the database.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  <ul class="list-unstyled">
+    <li class="nav-item">
+      <btn class="btn btn-primary"><a class="nav-link" href="/add-lead/">Add Leads</a></btn>
+    </li>
+  </ul>
+{% endblock %}

@@ -1,0 +1,10 @@
+{%extends 'core/base.html'%}
+{%block title%}Add Leads{%endblock%}
+{%block content%}
+<h3>Add Leads</h3>
+<form method='post'action='.'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class='btn btn-primary'>Submit</button>
+</form>
+{% endblock %}

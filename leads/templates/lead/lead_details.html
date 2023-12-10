@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% block title %}{{ leads.name }}{% endblock %}
+{% block content %}
+  <h1 class='mb-4'>{{ leads.name }}</h1>
+  <h4 class='mb-2'>Description</h4>
+  <p>{{ leads.description }}</p>
+<h4 class='mb-2'>Priority</h4>
+  <p>{{ leads.priority }}</p>
+<h4 class='mb-2'>Status</h4>
+  <p>{{ leads.status }}</p>
+<h4 class='mb-2'>Created at</h4>
+  <p>{{ leads.created_at }}</p>
+  <h4 class=' mb-2 font-weight-bold'>Modified at</h4>
+  <p class ='mb-5'>{{ leads.modified_at }}</p>
+<btn class='btn btn-secondary'>
+    <a href="{% url 'lead-client' leads.id %}" style='color:white; text-decoration: none;'>Convert to Client</a>
+</btn>
+<btn class='btn btn-success'>
+    <a href="{% url 'lead-edit' leads.id %}" style='color:white; text-decoration: none;'>Edit</a>
+</btn>
+<btn class='btn btn-danger'>
+    <a href="{% url 'lead-delete' leads.id %}" style='color:white; text-decoration: none;'>Delete</a>
+</btn>
+  <btn class="btn btn-primary">
+    <a href='/leads-list/' style='color:white; text-decoration: none;'>Back to list</a>
+</btn>
+{% endblock %}

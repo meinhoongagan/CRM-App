@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% block title %}Add Clients{% endblock %}
+{% block content %}
+  <h3> Clients</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class='bg-primary-subtle'>
+          Name
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for client in clients %}
+      <tr>
+        <td class="{% cycle 'bg-secondary-subtle' '' %}">
+          <a href="{% url 'client_details' client.id %}" style='color: blue; text-decoration: none;'>{{ client.name }}</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="3">There are no leads yet in the database.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <ul class="list-unstyled">
+    <li class="nav-item">
+      <btn class="btn btn-primary"><a class="nav-link" href="/client/add-client">Add Client</a></btn>
+    </li>
+  </ul>
+{% endblock %}
