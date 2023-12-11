@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'client',
     'core',
     'leads',
-    # 'teams',
+    'team',
     'dashboard',
 ]
 

@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import AddLeadForm
 from client.models import Client
-# from teams.models import Team
+from team.models import Team
 from .models import *
 # Create your views here.
 @login_required
@@ -25,8 +25,10 @@ def add_leads(request):
     if request.method=='POST':
         form = AddLeadForm(request.POST)
         if form.is_valid():
+            team=Team.objects.filter(created_by=request.user)[0]
             lead=form.save(commit=False)
             lead.created_by=request.user
+            lead.team=team
             lead.save()
             messages.success(request, "Lead has been Added")
             return redirect('lead-list')
@@ -49,14 +51,14 @@ def leads_edit(request,pk):
 @login_required
 def Convert_to_client(request,pk):
      lead=get_object_or_404(Lead,created_by=request.user,pk=pk)
-    #  team=Team.objects.filter(created_by=request.user).first()
+     team=Team.objects.filter(created_by=request.user)[0]
 
      client=Client.objects.create(
         name=lead.name,
         email=lead.email,
         description=lead.description,
         created_by=lead.created_by,
-        # team=team
+        team=team
      )
      lead.converted_to_client=True
      lead.save()

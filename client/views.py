@@ -4,6 +4,7 @@ from .models import Client
 from .form import AddClientForm
 from django.contrib import messages
 from .models import Activity
+from team.models import Team
 def home(request):
     # Retrieve recent activities (you might have a more specific query)
     recent_activities = Activity.objects.order_by('-timestamp')[:5]  # Fetch 5 most recent activities
@@ -22,10 +23,11 @@ def client_details(request,pk):
 def add_clients(request):
     if request.method == 'POST':
         form = AddClientForm(request.POST)
-        # team = Team.objects.filter(created_by=request.user).first()
         if form.is_valid():
+                team=Team.objects.filter(created_by=request.user)[0]
                 client = form.save(commit=False)  # Save the form data to a new client object without committing to the database yet
                 client.created_by = request.user  # Assign the current user as the creator of this client (if necessary)
+                client.team=team
                 client.save()  # Save the new client to the database
                 messages.success(request, "Client has been added")
                 return redirect('/client/client-list/')

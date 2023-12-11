@@ -16,7 +16,11 @@
       {% for lead in leads %}
       <tr>
         <td class="{% cycle 'bg-secondary-subtle' '' %}">
+          {% if lead.id %}
           <a href="{% url 'lead-details' lead.id %}" style='color: blue; text-decoration: none;'>{{ lead.name }}</a>
+          {% else %}
+          {{lead.name}}
+          {% endif %}
         </td>
         <td class="{% cycle 'bg-secondary-subtle' '' %}">{{ lead.priority }}</td>
         <td class="{% cycle 'bg-secondary-subtle' '' %}">{{ lead.status }}</td>
