@@ -11,6 +11,8 @@ Welcome to the Django CRM App, a customer relationship management system built u
 - **Database Structure:** Well-designed SQLite database tables for CRM functionalities.
 - **Team Collaboration:** Manage teams using a many-to-many field for improved collaboration and organization.
 - **Dashboard:** Introducing a dashboard template for enhanced data visualization and insights.
+- **My Account:** Users can view and modify their account details.
+- **Teams Form:** Modify team names for improved team management.
 
 ## Incomplete Work 🚧
 - **Non-dynamic Homepage:** Currently, the homepage lacks dynamic content.
