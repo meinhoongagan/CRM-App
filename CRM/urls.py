@@ -21,6 +21,7 @@ from member.views import *
 from dashboard.views import *
 from django.contrib.auth import views
 from leads.views import *
+from team.views import *
 # from client.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,6 +39,7 @@ urlpatterns = [
     path("<int:pk>/",leads_details,name="lead-details"),
     path('<int:pk>/delete/', leads_delete, name='lead-delete'),
     path('<int:pk>/edit/', leads_edit, name='lead-edit'),
+    path('<int:pk>/edit_team/', edit_team_views, name='edit_team'),
     path('<int:pk>/client/',Convert_to_client, name='lead-client'),
-    
+    path('myaccount/',my_account_view,name="myaccount")
 ]

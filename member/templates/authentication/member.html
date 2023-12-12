@@ -1,0 +1,18 @@
+{%extends 'core/base.html'%}
+{%block title%}My Account{%endblock%}
+{%block content%}
+<h1 class="col-6 offset-3 text-center">My Account</h1>
+<div class="col-6 offset-3 text-center mt-5">
+    <hr>
+
+<h4 class=""style="  color: rgb(13 137 105);"><b style="color:black">username:-</b> {{request.user.username}}</h4>
+<h4 style="  color: rgb(13 137 105);" ><b style="color:black">Team:-</b> {{team}}</h4>
+<button class="btn btn-primary " >
+    <a href="{% url 'edit_team' team.id%}" style="text-decoration: none; color:white">Edit-Team</a>
+</button>
+<hr>
+<button class="btn btn-danger nav-item mb-5">
+    <a class="nav-link " style="text-decorator:none;"href="/logout/">Log-Out</a>
+</button>
+</div>
+{%endblock%}

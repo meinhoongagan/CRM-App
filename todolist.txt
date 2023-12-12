@@ -1,0 +1,37 @@
+todolist
+-Done Virtual enviroment
+-Base page/Templates
+    -Done Create app for pages
+    -Done Create base Templates
+    -Done Create front page
+    -Done Create about page
+-Authentication
+    -Done create database model for member
+    -Done make it possible to sign up
+    -Done make it possible to log in
+    -Done make it possible to log out
+-Done Simple Dashboard
+-Create new lead
+    -Done New django app
+    -Done Database models
+    -Done Views/Forms for leads
+    -Done List out leads
+    -Done Views detail page of leads
+-Done Change and delete leads
+-Done Show a list of clients
+-Done Convert leads to clients
+-Done Show a list of clients
+-Done Show a detail page oa a client
+-Done Change and delete clients
+-Done Add clients
+-Implement solution for Templates
+    -Done Create teams app
+    -Done Model for teams
+    -Done When you create lead, make sure team is set
+    -Done When you create client, make sure team is set
+    -Done If you're not the member of team , create one
+    -if you are owner , make it possible to edit team
+    -limit no. of leads
+    -limit no. of clients
+-Implement a Payment solution / monthly recurring Payment
+-Deploy

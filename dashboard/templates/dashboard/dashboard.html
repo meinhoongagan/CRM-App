@@ -3,7 +3,7 @@
 {%block content%}
 <h1>Dashboard</h1>
 
-<div class="container">
+<div class="container bg bg-danger-subtle" >
     
     <div class="row">
         <div class="col-6">
@@ -12,7 +12,13 @@
             {% for lead in leads%}
             <div class="bg bg-primary-subtle m-3">
                 <a href="{% url 'lead-details' lead.id %}" style='color: blue; text-decoration: none;'>{{ lead.name }}</a>
+                <p>description :- {{lead.description}}</p>
+                <p>Status :- {{lead.status}}</p>
+                <p>Priority :- {{lead.priority}}</p>
+                <p>email :- {{lead.email}}</p>
+                <p>team :- {{lead.team}}</p>
             </div>
+            <hr>
             {%endfor%}
         </div>
         </div>
@@ -22,6 +28,10 @@
             {% for client in clients%}
             <div class="bg bg-primary-subtle m-3 ">
                 <a href="{% url 'client_details' client.id %}" style='color: blue; text-decoration: none;'>{{ client.name }}</a>
+                <p>description :- {{client.description}}</p>
+                <p>email :- {{client.email}}</p>
+                <p>team :- {{client.team}}</p>
+                <hr>
             </div>
             {%endfor%}
         </div>
