@@ -21,7 +21,7 @@ Welcome to the Django CRM App, a customer relationship management system built u
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/Django-CRM-App.git
+   git clone https://github.com/meinhoongagan/Django-CRM-App.git
 2. **Install dependencies:**
 
     ```bash
